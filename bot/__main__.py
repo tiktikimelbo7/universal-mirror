@@ -37,8 +37,9 @@ authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval
 )
 
 
+#1 no function
 
-//1 no fuction
+
 
 def call_back_data(update, context):
     global main
@@ -48,7 +49,8 @@ def call_back_data(update, context):
     main = None
 
 
-//2 no function
+
+#2 no function
 
 
 
@@ -72,7 +74,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
 
 
 
-//3 no function
+#3 no function
 
 
 

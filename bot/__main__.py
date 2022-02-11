@@ -38,7 +38,17 @@ authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval
 
 
 
+//1 no fuction
 
+def call_back_data(update, context):
+    global main
+    query = update.callback_query
+    query.answer()
+    main.delete()
+    main = None
+
+
+//2 no function
 
 
 
@@ -62,7 +72,7 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
 
 
 
-
+//3 no function
 
 
 

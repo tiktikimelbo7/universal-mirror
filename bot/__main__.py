@@ -101,8 +101,8 @@ def stats(update, context):
             f'<b>├  🎮 RAM : {memory}%</b>\n' \
             f'<b>├  💽 DISK : {disk}%</b>\n' \
             f'<b>│</b>\n' \
-            keyboard = [[InlineKeyboardButton("CLOSE", callback_data="stats_close")]]
-            main = sendMarkup(stats, context.bot, update, reply_markup=InlineKeyboardMarkup(keyboard))
+     keyboard = [[InlineKeyboardButton("CLOSE", call_back_data="stats_close")]]
+     main = sendMarkup(stats, context.bot, update, reply_markup=InlineKeyboardMarkup(keyboard))
 
 
 

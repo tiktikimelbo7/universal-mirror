@@ -221,7 +221,7 @@ help_string = f'''
 
 if CustomFilters.sudo_user(update) or CustomFilters.owner_filter(update):
         sendMessage(help_string_adm, context.bot, update)
-    else:
+else:
         sendMessage(help_string, context.bot, update)
 
 

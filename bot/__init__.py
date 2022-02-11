@@ -203,7 +203,7 @@ try:
     UPSTREAM_REPO = getConfig('UPSTREAM_REPO')
     UPSTREAM_BRANCH = getConfig('UPSTREAM_BRANCH')
     IMAGE_URL = getConfig('IMAGE_URL')
-    BASE_URL = = getConfig ('BASE_URL_OF_BOT')
+    BASE_URL = getConfig ('BASE_URL_OF_BOT')
     HEROKU_API_KEY = getConfig('HEROKU_API_KEY')
     HEROKU_APP_NAME = getConfig('HEROKU_APP_NAME')
     IS_TEAM_DRIVE = getConfig('IS_TEAM_DRIVE')

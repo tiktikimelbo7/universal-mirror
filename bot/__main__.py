@@ -104,3 +104,25 @@ def stats(update, context):
             keyboard = [[InlineKeyboardButton("CLOSE", callback_data="stats_close")]]
             main = sendMarkup(stats, context.bot, update, reply_markup=InlineKeyboardMarkup(keyboard))
 
+
+
+#4 no function
+
+
+
+
+
+def restart(update, context):
+    restart_message = sendMessage("Rebooting System...", context.bot, update)
+    # Save restart message object in order to reply to it after restarting
+    with open(".restartmsg", "w") as f:
+        f.truncate(0)
+        f.write(f"{restart_message.chat.id}\n{restart_message.message_id}\n")
+    fs_utils.clean_all()
+    alive.kill()
+    process = psutil.Process(web.pid)
+    for proc in process.children(recursive=True):
+        proc.kill()
+    process.kill()
+    nox.kill()
+    os.execl(executable, executable, "-m", "bot")

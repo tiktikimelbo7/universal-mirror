@@ -76,9 +76,8 @@ Type /{BotCommands.HelpCommand} to get a list of available commands
 
 #3 no function
 
-
-
 def stats(update, context):
+    global main
     currentTime = get_readable_time(time.time() - botStartTime)
     total, used, free = shutil.disk_usage('.')
     total = get_readable_file_size(total)
@@ -89,22 +88,20 @@ def stats(update, context):
     cpuUsage = psutil.cpu_percent(interval=0.5)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    stats = f'<b>╭──「⭕️ BOT STATISTICS ⭕️」</b>\n' \
-            f'<b>│</b>\n' \
-            f'<b>├  ⏰ Bot Uptime : {currentTime}</b>\n' \
-            f'<b>├  💾 Total Disk Space : {total}</b>\n' \
-            f'<b>├  📀 Total Used Space : {used}</b>\n' \
-            f'<b>├  💿 Total Free Space : {free}</b>\n' \
-            f'<b>├  🔼 Total Upload : {sent}</b>\n' \
-            f'<b>├  🔽 Total Download : {recv}</b>\n' \
-            f'<b>├  🖥️ CPU : {cpuUsage}%</b>\n' \
-            f'<b>├  🎮 RAM : {memory}%</b>\n' \
-            f'<b>├  💽 DISK : {disk}%</b>\n' \
-            f'<b>│</b>\n' \
-     keyboard = [[InlineKeyboardButton("CLOSE", call_back_data="stats_close")]]
-     main = sendMarkup(stats, context.bot, update, reply_markup=InlineKeyboardMarkup(keyboard))
-
-
+    stats = f'▶ Rᴜɴɴɪɴɢ Sɪɴᴄᴇ ▶ : {currentTime}\n' \
+            f'<b>DISK INFO</b>\n' \
+            f'<b><i>Total</i></b>: {total}\n' \
+            f'<b><i>Used</i></b>: {used} ~ ' \
+            f'<b><i>Free</i></b>: {free}\n\n' \
+            f'<b>DATA USAGE</b>\n' \
+            f'<b><i>UL</i></b>: {sent} ~ ' \
+            f'<b><i>DL</i></b>: {recv}\n\n' \
+            f'<b>SERVER STATS</b>\n' \
+            f'<b><i>CPU</i></b>: {cpuUsage}%\n' \
+            f'<b><i>RAM</i></b>: {memory}%\n' \
+            f'<b><i>DISK</i></b>: {disk}%\n'
+    keyboard = [[InlineKeyboardButton("CLOSE", callback_data="stats_close")]]
+    main = sendMarkup(stats, context.bot, update, reply_markup=InlineKeyboardMarkup(keyboard))
 
 #4 no function
 

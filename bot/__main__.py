@@ -20,7 +20,7 @@ from telegraph import Telegraph
 
 
 from wserver import start_server_async
-from bot import bot, app, dispatcher, updater, botStartTime, IGNORE_PENDING_REQUESTS, IS_VPS, PORT, alive, web, nox, OWNER_ID, AUTHORIZED_CHATS, telegraph_token, BOT_NO
+from bot import bot, IMAGE_URL, app, dispatcher, updater, botStartTime, IGNORE_PENDING_REQUESTS, IS_VPS, PORT, alive, web, nox, OWNER_ID, AUTHORIZED_CHATS, telegraph_token, BOT_NO
 from bot.helper.ext_utils import fs_utils
 from bot.helper.telegram_helper.bot_commands import BotCommands
 from bot.helper.telegram_helper.message_utils import *
@@ -51,7 +51,7 @@ def start(update, context):
 This bot can mirror all your links to Google Drive!
 Type /{BotCommands.HelpCommand} to get a list of available commands
 '''
-        sendMarkup(start_string, context.bot, update, reply_markup)
+        update.effective_message.reply_photo(IMAGE_URL, start_string, parse_mode=ParseMode.HTML)
     else:
         sendMarkup(
             'Oops! not a Authorized user.\nPlease deploy your own <b>priiiiyo-mirror-leech-bot</b>.',

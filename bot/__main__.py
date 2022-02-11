@@ -45,7 +45,7 @@ authorize, list, cancel_mirror, mirror_status, mirror, clone, watch, shell, eval
 def start(update, context):
     buttons = button_build.ButtonMaker()
     buttons.buildbutton("Repo", "https://github.com/tiktikimelbo7/universal-mirror")
-    reply_markup = InlineKeyboardMarkup(buttons.build_menu(2))
+    reply_markup = InlineKeyboardMarkup(buttons.build_menu(1))
     if CustomFilters.authorized_user(update) or CustomFilters.authorized_chat(update):
         start_string = f'''
 This bot can mirror all your links to Google Drive!
